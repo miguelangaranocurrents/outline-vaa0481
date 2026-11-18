@@ -410,6 +410,9 @@ class UiStore {
       this.secondaryRightSidebar = panel;
     } else {
       this.rightSidebar = panel;
+      // Only the primary pane is persisted, so closing the sidebar must be
+      // written out too or a reload restores the stale panel.
+      this.persist();
     }
   };
 
